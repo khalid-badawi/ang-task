@@ -1,0 +1,8 @@
+<div class="task-cont" draggable="true" (dragstart)="onDragStart($event)" (dragover)="onDragOver($event)" >
+    <input type="checkbox" id="taskCheckbox{{index}}" [checked]="task.status==='completed'" (change)="onStatusChange()" />
+    <label for="taskCheckbox{{index}}" [style.textDecoration]="task.status === 'completed' ? 'line-through' : 'none'">{{ task.description }}</label>
+    <div>
+        <fa-icon [icon]="faHand" class="delete-icon"></fa-icon>
+        <fa-icon [icon]="faTrash" class="delete-icon" (click)="onDelete()"></fa-icon>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="card">
+  <header class="container">
+    <div class="input-cont">
+      <i class="icon">☰</i>
+      <form [formGroup]="taskForm" (ngSubmit)="addTask()">
+        <input type="text" formControlName="description" placeholder="Add a new task"
+        class="borderless-input"/>
+      </form>
+    </div>
+  </header>
+  <nav class="nav-bar">
+    <button
+      class="btn"
+      [class.selected-btn]="selectedFilter === 'all'"
+      (click)="selectFilter('all')"
+    >
+      All
+    </button>
+    <button
+      class="btn"
+      [class.selected-btn]="selectedFilter === 'pending'"
+      (click)="selectFilter('pending')"
+    >
+      Pending
+    </button>
+    <button
+      class="btn"
+      [class.selected-btn]="selectedFilter === 'completed'"
+      (click)="selectFilter('completed')"
+    >
+      Completed
+    </button>
+    <button class="clear-btn" (click)="clearAll()">Clear All</button>
+  </nav>
+  <main class="content">
+    <ng-container *ngFor="let task of tasks; let i = index">
+      <ng-container *ngIf="filteredTasks.includes(task)">
+        <app-task-item
+          [task]="task"
+          [index]="tasks.indexOf(task)"
+          (statusChange)="onStatusChange($event)"
+          (delete)="onDelete($event)"
+          (drag)="onDrag($event)"
+        ></app-task-item>
+      </ng-container>
+    </ng-container>
+  </main>
+</div>

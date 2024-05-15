@@ -1,0 +1,63 @@
+
+  .task-cont input[type="checkbox"] {
+    display: none;
+  }
+  .task-cont label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+  }
+  .task-cont label:before {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #aaa;
+    position: absolute;
+    left: 0;
+    top:1px;
+  }
+  
+  .task-cont input[type="checkbox"]:checked + label:before {
+    background-color: rgb(40, 140, 221);
+    border-color: rgb(40, 140, 221);
+  }
+  .task-cont input[type="checkbox"]:checked + label:after {
+    content: "\2713"; 
+    font-size: 12px;
+    color: white;
+    position: absolute;
+    left: 4px;
+  }
+  input[type="checkbox"]:checked + label {
+      text-decoration: line-through;
+    }
+  .task-cont {
+    flex: 1;
+    margin: 0px 20px 0px 20px;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .task-cont:last-child {
+    border-bottom: none;
+  }
+  
+  .delete-icon {
+    color:rgb(40, 140, 221);
+    font-size: 18px;
+    margin-top: 2px;
+    padding-bottom: 2px;
+    margin-left: 10px;
+  }
+
+  .delete-icon:hover {
+    cursor: pointer;
+    font-size: 20px;
+    padding-bottom: 0;
+    
+  }
+  
